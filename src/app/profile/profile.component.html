@@ -1,0 +1,120 @@
+<div class="container">
+   <div id="test">
+       
+    <div class="layout">
+        <div class="layoutHead">
+            <h1>{{userName}}</h1>
+        </div>
+        <!-- <form action="" class="formClass">
+            <span class="title"> Vinay Boda</span>
+            <div class="row imgClass">
+                <figure class="figure">
+                    <img class="img-thumbnail" id="imgstyle"  src="assets/images/29_10_2019-handsomee.jpeg" class="figure-img img-fluid rounded" alt="...">
+                    <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                  </figure>
+            </div>
+            <div class="input row">
+                    <label class="col-md-3">Email </label>
+                    <input class="form-control field col-md-6" value="nviauha@njkn.com" readonly/>
+                    <button class="editBtn col-md-3">Edit</button>
+            </div>
+            <div class="input row">
+                <label class="col-md-3">Mobile Number</label>
+                <input class="form-control field col-md-6"  value="9177167767" readonly/>
+                <button class="editBtn col-md-3">Edit</button>
+            </div>
+            <div class="input row">
+                <label class="col-md-3">Role</label>
+                <input class="form-control field col-md-6" value="Student" readonly/>
+                <button class="editBtn col-md-3">Edit</button>
+            </div>
+            <div class="input row">
+                <label class="col-md-3">Role</label>
+                <input class="form-control field col-md-6" value="Student" readonly/>
+                <button class="editBtn col-md-3">Edit</button>
+            </div>
+            <div class="input row">
+                <label class="col-md-3">Role</label>
+                <input class="form-control field col-md-6" value="Student" readonly/>
+                <button class="editBtn col-md-3">Edit</button>
+            </div>
+        </form> -->
+        <div class="layoutBody">
+            <form [formGroup]="userProfile">
+                <div class="form-group row">
+                    <label for="admissionId" class="col-md-3">AdmissionId</label>
+                    <div *ngIf="showAdmissionField" class="col-md-6">
+                      <input type="text" class="form-control col-md-12" id="admissionId" formControlName="admissionId">
+                    </div>
+                    <div *ngIf="!showAdmissionField" class="display col-md-6">{{userProfile.get('admissionId').value}}</div>
+                    <div *ngIf="!showAdmissionField" class="col-md-3" style="text-align:center" (click)="editElement('admission')">edit</div>
+                    <div *ngIf="showAdmissionField" class="buttons col-md-3">
+                        <button class="btn" (click)='saveElement("admission", userProfile.get("admissionId"))'>save</button>
+                        <button class="btn" (click)='cancel("admission")'>cancel</button>
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <label for="email" class="col-md-3">email</label>
+                  <div *ngIf="showEmailField" class="col-md-6">
+                    <input type="text" class="form-control col-md-12" id="email" formControlName="email">
+                  </div>
+                  <div *ngIf="!showEmailField" class="display col-md-6">{{userProfile.get('email').value}}</div>
+                  <div *ngIf="!showEmailField" class="col-md-3" style="text-align:center" (click)='editElement("email")'>edit</div>
+                  <div *ngIf="showEmailField" class="buttons col-md-3">
+                      <button class="btn" (click)='saveElement("email",userProfile.get("email"))'>save</button>
+                      <button class="btn" (click)='cancel("email")'>cancel</button>
+                  </div>
+              </div>
+              <div class="form-group row">
+                <label for="password" class="col-md-3">password</label>
+                <div *ngIf="showPasswordField" class="col-md-6">
+                  <input type="password" class="form-control col-md-12" id="password" formControlName="password">
+                </div>
+                <div *ngIf="!showPasswordField" class="display col-md-6">{{passwordValue}}</div>
+                <div *ngIf="!showPasswordField" class="col-md-3" style="text-align:center" (click)='editElement("password")'>edit</div>
+                <div *ngIf="showPasswordField" class="buttons col-md-3">
+                    <button class="btn" (click)='saveElement("password", userProfile.get("password"))'>save</button>
+                    <button class="btn" (click)='cancel("password")'>cancel</button>
+                </div>
+            </div>
+            <div class="form-group row">
+              <label for="course" class="col-md-3">course</label>
+              <div *ngIf="showCourseField" class="col-md-6">
+                <input type="text" class="form-control col-md-12" id="course" formControlName="course">
+              </div>
+              <div *ngIf="!showCourseField" class="display col-md-6">{{userProfile.get('course').value}}</div>
+              <div *ngIf="!showCourseField" class="col-md-3" style="text-align:center" (click)='editElement("course")'>edit</div>
+              <div *ngIf="showCourseField" class="buttons col-md-3">
+                  <button class="btn" (click)='saveElement("course", userProfile.get("course"))'>save</button>
+                  <button class="btn" (click)='cancel("course")'>cancel</button>
+              </div>
+          </div>
+            <div class="form-group row">
+              <label for="role" class="col-md-3">role</label>
+              <div *ngIf="showRoleField" class="col-md-6">
+                <input type="text" class="form-control col-md-12" id="role" formControlName="role">
+              </div>
+              <div *ngIf="!showRoleField" class="display col-md-6">{{userProfile.get('role').value}}</div>
+              <div *ngIf="!showRoleField" class="col-md-3" style="text-align:center" (click)='editElement("role")'>edit</div>
+              <div *ngIf="showRoleField" class="buttons col-md-3">
+                  <button class="btn" (click)='saveElement("role", userProfile.get("role"))'>save</button>
+                  <button class="btn" (click)='cancel("role")'>cancel</button>
+              </div>
+          </div>
+          <div class="form-group row" >
+            <label for="mobile" class="col-md-3">mobile</label>
+            <div *ngIf="showMobileField" class="col-md-6">
+              <input type="text" class="form-control col-md-12" id="mobile" formControlName="mobile">
+            </div>
+            <div *ngIf="!showMobileField" class="display col-md-6">{{userProfile.get('mobile').value}}</div>
+            <div *ngIf="!showMobileField" class="col-md-3" style="text-align:center" (click)='editElement("mobile_number")'>edit</div>
+            <div *ngIf="showMobileField" class="buttons col-md-3">
+                <button class="btn" (click)='saveElement("mobile_number", userProfile.get("mobile"))'>save</button>
+                <button class="btn" (click)='cancel("mobile_number")'>cancel</button>
+            </div>
+        </div>
+          </form>  
+        </div>
+    </div>
+   </div>
+</div>

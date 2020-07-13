@@ -1,0 +1,72 @@
+.appContainer{
+    background: -webkit-linear-gradient(#d43f8d, #d43f8d, #0250c5);
+}
+header{
+    background: aliceblue;
+}
+* {
+    box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+    }
+    .row{
+      display:flex;
+      justify-content:flex-start;
+      align-items:stretch;
+      flex-wrap:nowrap;
+      padding:10px;
+    }
+    .cell{
+      min-height:75px;
+      flex-grow:1;
+      flex-basis:100%;
+    }
+    #in7k{
+      padding:10px;
+      font-family:Georgia, serif;
+      font-size:30px;
+      font-weight:700;
+      text-align:center;
+      justify-content:flex-end;
+    }
+    @media (max-width: 768px){
+      .row{
+        flex-wrap:wrap;
+      }
+    }
+app-login{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+/* .navBar{
+  border-bottom: 0px solid #b5b0b057;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.428571429;
+  color: white;
+  background: #d43f8d;
+  margin: 0%;
+  padding: 0%;
+  cursor: pointer;
+}
+.navBar>ul{
+  border-bottom: 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.navBar>ul>li{
+    border: 1px solid #d43f8d;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+.active{
+  background-color: #0250c5;
+} */

@@ -1,0 +1,35 @@
+.navBar{
+    border-bottom: 0px solid #b5b0b057;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.428571429;
+    color: white;
+    background: #d43f8d;
+    margin: 0%;
+    padding: 0%;
+    cursor: pointer;
+  }
+  .navBar>ul{
+    border-bottom: 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .navBar>ul>li{
+      border: 1px solid #d43f8d;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  .active{
+    background-color: #0250c5;
+  }
+
+  .logout{
+    position: relative;
+    top: -110px;
+    right: 5%;
+    float: right;
+  }
