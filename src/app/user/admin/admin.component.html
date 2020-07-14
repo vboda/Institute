@@ -61,32 +61,55 @@
       </button>
     </div>
     <div class="modal-body">
-        <form>
+        <form [formGroup]="userSignUp">
+          <div class="form-group row">
+            <label for="admission" class="col-md-3">Admission No</label>
+            <input type="text" class="form-control col-md-6" id="admission" placeholder="Enter the Admission No" formControlName="user_id">
+            <div class="inlineError" *ngIf="(userSignUp.get('user_id').touched || userSignUp.get('user_id').dirty) && !userSignUp.get('user_id').valid">Admission Id is mandatory</div>
+        </div>
                 <div class="form-group row">
                     <label for="name" class="col-md-3">Name</label>
-                    <input type="text" class="form-control col-md-6" id="name" placeholder="Enter the Name">
+                    <input type="text" class="form-control col-md-6" id="name" placeholder="Enter the Name" formControlName="user_name">
+                    <div class="inlineError" *ngIf="(userSignUp.get('user_name').touched || userSignUp.get('user_name').dirty) && !userSignUp.get('user_name').valid">Name in mandatory</div>
                 </div>
                 <div class="form-group row ">
                     <label for="mobile" class="col-md-3">Mobile Number</label>
-                    <input type="text" class="form-control col-md-6" id="mobile" placeholder="Mobile Number">
+                    <input type="text" class="form-control col-md-6" id="mobile" placeholder="Mobile Number" formControlName="mobile_number">
+                    <div class="inlineError" *ngIf="(userSignUp.get('mobile_number').touched || userSignUp.get('mobile_number').dirty) && !userSignUp.get('mobile_number').valid">Please enter valid mobile nummber</div>
                 </div>
               <div class="form-group row">
                 <label for="inputEmail4" class="col-md-3">Email</label>
-                <input type="email" class="form-control col-md-6" id="inputEmail4" placeholder="Email">
+                <input type="email" class="form-control col-md-6" id="inputEmail4" placeholder="Email" formControlName="email">
+                <div class="inlineError" *ngIf="(userSignUp.get('email').touched || userSignUp.get('email').dirty) && !userSignUp.get('email').valid">Email is mandatory</div>
               </div>
               <div class="form-group row">
                 <label for="role" class="col-md-3">role</label>
-                <input type="text" class="form-control col-md-6" id="role" placeholder="dropdown">
+                <!-- <input type="text" class="form-control col-md-6" id="role" placeholder="dropdown"> -->
+                <select class="col-md-6" id="role" formControlName="role">
+                  <option selected>Choose...</option>
+                  <option *ngFor="let role of roles" value="{{role}}">{{role}}</option>
+                </select>
+                <div class="inlineError" *ngIf="(userSignUp.get('role').touched || userSignUp.get('role').dirty) && !userSignUp.get('role').valid">Please select the User role</div>
               </div>
               <div class="form-group row">
                 <label for="course" class="col-md-3">Course</label>
-                <input type="text" class="form-control col-md-6" id="course" placeholder="dropdown">
+                <select class="col-md-6" id="course"  formControlName="course">
+                  <option selected>Choose...</option>
+                  <option *ngFor="let course of courses" value="{{course}}">{{course}}</option>
+                </select>
+                <!-- <div class="inlineError" *ngIf="(userSignUp.get('user_id').touched || userSignUp.get('user_id').dirty) && userSignUp.get('user_id').valid">Admission Id is mandatory</div> -->
+                <!-- <input type="text" class="form-control col-md-6" id="course" placeholder="dropdown"> -->
               </div>
               <div class="form-group row">
                 <label for="inputPassword4" class="col-md-3">Password</label>
-                <input type="password" class="form-control col-md-6" id="inputPassword4" placeholder="Password">
+                <input type="password" class="form-control col-md-6" id="inputPassword4" placeholder="Password" formControlName="password">
+                <div class="inlineError" *ngIf="(userSignUp.get('password').touched || userSignUp.get('password').dirty) && !userSignUp.get('password').valid">Please enter the password</div>
               </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
+              <div class="form-group row">
+                <label class="col-md-3"></label>
+                <!-- <input type="password" class="form-control col-md-6" id="inputPassword4" placeholder="Password"> -->
+                <button type="submit" class="btn btn-primary col-md-6" (click)='signUp(userSignUp)' [disabled]="!userSignUp.valid">Sign in</button>
+              </div>
           </form>
     </div>
     <!-- <div class="modal-footer">
@@ -95,6 +118,8 @@
   </ng-template>
   
   
-  <div>
-    <button class="btn btn-outline-primary mb-2 mr-2" (click)="addUserModel(addUser)">Add User</button>
+  <div class="view">
+    <div class="row col-md-12">
+      <button id='addUserBtn' class="btn btn-primary mb-2 mr-2 col-md-4" (click)="addUserModel(addUser)">Add User</button>
+    </div>
   </div> 

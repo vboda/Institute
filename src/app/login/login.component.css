@@ -234,7 +234,8 @@ input[type=password] {
 }
 
 .btnActive{
-  background-color: #d33f8d !important;
+  background-color: #d33f8d !important
+  ;
 }
 
 label[for=remember]{

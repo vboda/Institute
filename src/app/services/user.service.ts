@@ -30,4 +30,19 @@ export class UserService {
     return this.http.post<any>(url, data);
   }
 
+  getCourses(){
+    const url = this.SERVER_URL + '/courses';
+    return this.http.get<any>(url);
+  }
+
+  getRoles(){
+    const url = this.SERVER_URL + '/roles';
+    return this.http.get<any>(url);
+  }
+
+  addUser(data){
+    const url = this.SERVER_URL + '/addUser';
+    return this.http.post<any>(url, data);
+  }
+
 }
