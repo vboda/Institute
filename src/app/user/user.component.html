@@ -1,12 +1,12 @@
 <div class="row pt20 pb20 navBar">
-          <ul class="col-12 nav nav-tabs nav-justified" id="navBar">
-              <li class="col-4 active" routerLink="profile" routerLinkActive="active">
+          <ul #navElement class="col-12 nav nav-tabs nav-justified" id="navBar" (click)=onNavClick($event)>
+              <li class="col-4" routerLink="profile" >
                   Profile
               </li>
-              <li class="col-4"  routerLink="data" routerLinkActive='active'>
+              <li class="col-4"  routerLink="data" >
                   Student Data
               </li>
-              <li class="col-4" routerLink="admin" routerLinkActive='active'>
+              <li class="col-4" routerLink="admin" >
                   Admin
               </li>
           </ul>

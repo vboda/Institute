@@ -44,5 +44,10 @@ export class UserService {
     const url = this.SERVER_URL + '/addUser';
     return this.http.post<any>(url, data);
   }
+  
+  deleteUser(data){
+    const url = this.SERVER_URL + '/deleteUser';
+    return this.http.post<any>(url, data);
+  }
 
 }

@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
   @ViewChild('addUser') content: ElementRef;
   ngOnInit(): void {
     console.log(this.location.getState());
-    this.user = this.location.getState()
+    this.user = JSON.parse(sessionStorage.getItem('currentUser'));
     // tslint:disable-next-line: no-string-literal
     if (!this.user['user_id']){
       this.route.navigateByUrl('/login');

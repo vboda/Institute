@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
               private userService: UserService,
               private route: Router) {
    }
-
+   @ViewChild('btn') btn: ElementRef;
 
   ngOnInit(): void {
     this.userLogin = this.fb.group({
@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
       this.userService.authenticate(this.userLogin.value).subscribe(res => {
         this.userLogin.reset();
         console.log(res);
+        sessionStorage.setItem('currentUser', JSON.stringify(res.body));
         this.route.navigateByUrl('/user/profile', {state: res.body});
 
       },
@@ -61,6 +62,10 @@ export class LoginComponent implements OnInit {
 
   onFocus(){
     this.showError = false;
+  }
+  sendit(){
+    this.btn.nativeElement.focus();
+    this.btn.nativeElement.click();
   }
 
 }

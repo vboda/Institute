@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UserService } from 'src/app/services/user.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -14,7 +15,8 @@ export class AdminComponent implements OnInit {
   userSignUp: FormGroup;
   constructor(private modalService: NgbModal,
               private userService: UserService,
-              private fb: FormBuilder) {}
+              private fb: FormBuilder,
+              private route: Router) {}
 
   ngOnInit(): void {
       this.userService.getCourses().subscribe(
@@ -55,6 +57,7 @@ export class AdminComponent implements OnInit {
         res => {
           this.userSignUp.reset();
           this.modalService.dismissAll();
+          this.route.navigateByUrl('/user/data');
         },
         err => {
           this.userSignUp.reset();

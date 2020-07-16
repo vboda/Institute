@@ -10,24 +10,24 @@
   <div *ngIf="showError" class="alert alert-success message" role="alert">
     {{errorText}}
   </div>
-    <form [formGroup]="userLogin">
-      <h1 class="lgin">Log in</h1>
-      <div class="inset">
+  <form [formGroup]="userLogin">
+    <h1 class="lgin">Log in</h1>
+    <div class="inset">
       <p>
         <label for="email">EMAIL ADDRESS</label>
         <input type="text" name="email" id="
         email" formControlName="email" required (focus)='onFocus()'>
         <!-- <div *ngIf='email.errors'>Please ENter  a  valid Email</div> -->
       </p>
-      <div  class = "danger"
-       *ngIf="(userLogin.get('email').touched || userLogin.get('email').dirty) && userLogin.get('email').invalid"> Please Enter  a  valid Email</div>
+      <div class="danger"
+        *ngIf="(userLogin.get('email').touched || userLogin.get('email').dirty) && userLogin.get('email').invalid">
+        Please Enter a valid Email</div>
       <p>
         <label for="password">PASSWORD</label>
-        <input type="password" name="password" id="password" formControlName="password" required/>
+        <input type="password" name="password" id="password" (keyup.enter)="sendit()" formControlName="password" required />
       </p>
       <p>
-        <input type="button" id="btn" class= "btn btn-primary" name="go"  value="Log in" [disabled]="userLogin.invalid" [ngClass]="userLogin.valid?'btnActive':'my-class2'" (click)="onSubmit(userLogin)">
+        <input type="button" #btn id="btn" class="btn btn-primary" name="go" value="Log in" [disabled]="userLogin.invalid"
+          [ngClass]="userLogin.valid?'btnActive':'my-class2'" (click)="onSubmit(userLogin)">
       </p>
-      </div>
-    </form>
-</div>
+    </div>
